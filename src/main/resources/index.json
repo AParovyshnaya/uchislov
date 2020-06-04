@@ -1,21 +1,38 @@
-{
-  "defaults": {
-    "full": "full",
-    "cut": ""
-  },
-  "cases": [
-    {
-      "grade": "5",
-      "texts": [
-        {
-          "name": "агроном",
-          "letters": "а"
-        },
-        {
-          "name": "ветеран",
-          "letters": "в,б,а"
-        }
-      ]
-    }
-  ]
-}
+﻿{
+		"defaults": {
+			"full": "full",
+			"cut": ""
+		},
+		"cases": [{
+			"grade": "5",
+			"texts": [{
+					"name": "агроном",
+					"letters": "а"
+				},
+				{
+					"name": "ветеран",
+					"letters": "в,б,а"
+				},
+				{
+					"name": "аппарат",
+					"letters": "а"
+				},
+				{
+					"name": "аккуратно",
+					"letters": "а"
+				},
+				{
+					"name": "бегемот",
+					"letters": "б"
+				},
+				{
+					"name": "богатырь",
+					"letters": "б,а"
+				},
+				{
+					"name": "гусеница",
+					"letters": "г"
+				}
+			]
+		}]
+	}
