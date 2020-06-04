@@ -1,0 +1,21 @@
+{
+  "defaults": {
+    "full": "full",
+    "cut": ""
+  },
+  "cases": [
+    {
+      "grade": "5",
+      "texts": [
+        {
+          "name": "агроном",
+          "letters": "а"
+        },
+        {
+          "name": "ветеран",
+          "letters": "в,б,а"
+        }
+      ]
+    }
+  ]
+}
