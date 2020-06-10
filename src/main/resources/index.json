@@ -1,38 +1,58 @@
 ﻿{
-		"defaults": {
-			"full": "full",
-			"cut": ""
-		},
-		"cases": [{
-			"grade": "5",
-			"texts": [{
-					"name": "агроном",
-					"letters": "а"
-				},
-				{
-					"name": "ветеран",
-					"letters": "в,б,а"
-				},
-				{
-					"name": "аппарат",
-					"letters": "а"
-				},
-				{
-					"name": "аккуратно",
-					"letters": "а"
-				},
-				{
-					"name": "бегемот",
-					"letters": "б"
-				},
-				{
-					"name": "богатырь",
-					"letters": "б,а"
-				},
-				{
-					"name": "гусеница",
-					"letters": "г"
-				}
-			]
-		}]
-	}
+	"defaults": {
+		"full": "full",
+		"cut": ""
+	},
+	"cases": [{
+		"grade": "5",
+		"texts": [{
+				"name": "агроном",
+				"letters": "а"
+			},
+			{
+				"name": "ветеран",
+				"letters": "в,б,а"
+			},
+			{
+				"name": "аппарат",
+				"letters": "а"
+			},
+			{
+				"name": "аккуратно",
+				"letters": "а"
+			},
+			{
+				"name": "бегемот",
+				"letters": "б"
+			},
+			{
+				"name": "богатырь",
+				"letters": "б,а"
+			},
+			{
+				"name": "гусеница",
+				"letters": "г"
+			},
+			{
+				"name": "Дед Мороз",
+				"letters": "д,а"
+			},
+			{
+				"name": "Ездил",
+				"letters": "е,а"
+			},
+			{
+				"name": "Животное",
+				"letters": "ж"
+			},
+			{
+				"name": "Заяц",
+				"letters": "з"
+			},
+			{
+				"name": "Игорь",
+				"letters": "и"
+			}
+		]
+	}]
+}
