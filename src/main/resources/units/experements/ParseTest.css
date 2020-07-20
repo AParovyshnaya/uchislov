@@ -1,0 +1,19 @@
+body {
+    background:white;
+    color: black;
+
+    margin: 0;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+P.orfo {
+    color: red;
+}
+P.normal_words {
+    color: black;
+
+}
