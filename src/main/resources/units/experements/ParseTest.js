@@ -80,42 +80,42 @@ function resultUser(elementForBirthUserResult, elementForCorrectAnswers, userCon
 
 }
 
-function render(target, segment, isInput) {
-    let label;
-    if (isInput) {
-        // Renders an input field
-        label = document.createElement("input");
-        label.setAttribute("class", "orfo");
-        label.setAttribute("value", segment);
-        label.setAttribute("size", 5);
-    } else {
-        // Renders a plain text
-        label = document.createElement("label");
-        label.setAttribute("class", "normal_words");
-        label.textContent = segment;
+    function render(target, segment, isInput) {
+        let label;
+        if (isInput) {
+            // Renders an input field
+            label = document.createElement("input");
+            label.setAttribute("class", "orfo");
+            label.setAttribute("value", segment);
+            label.setAttribute("size", 5);
+        } else {
+            // Renders a plain text
+            label = document.createElement("label");
+            label.setAttribute("class", "normal_words");
+            label.textContent = segment;
+        }
+        // Appends created rendered segment to the given target
+        target.appendChild(label);
     }
-    // Appends created rendered segment to the given target
-    target.appendChild(label);
-}
 
-function showTask() {
-    const target = document.getElementById("task-container");
-    let test = "Аморальный <а>гр<о>ном в <А>встралии, <А>нтарктиде, Афр<и>ке и Азии строил а<л>юминиевые авт<о>к<о>ло<нн>ы рядом с а<лл>еями и акв<а>ториями, которые охраняли ав<и>ад<е>санты с <а>вт<о>мат<а>ми.";
-    let fullTest = "Аморальный агроном в Австралии, Антарктиде, Африке и Азии строил алюминиевые автоколонны рядом с аллеями и акваториями, которые охраняли авиадесанты с автоматами.";
-    let rightStaple = -1;
-    let morsel = 0;
-    let text;
-    while (rightStaple < test.lastIndexOf('>')) {
-        let leftStaple = test.indexOf(`<`, rightStaple);
-        text = test.substring(rightStaple + 1, leftStaple);
+    function showTask() {
+        const target = document.getElementById("task-container");
+        let test = "Аморальный <а>гр<о>ном в <А>встралии, <А>нтарктиде, Афр<и>ке и Азии строил а<л>юминиевые авт<о>к<о>ло<нн>ы рядом с а<лл>еями и акв<а>ториями, которые охраняли ав<и>ад<е>санты с <а>вт<о>мат<а>ми.";
+        let fullTest = "Аморальный агроном в Австралии, Антарктиде, Африке и Азии строил алюминиевые автоколонны рядом с аллеями и акваториями, которые охраняли авиадесанты с автоматами.";
+        let rightStaple = -1;
+        let morsel = 0;
+        let text;
+        while (rightStaple < test.lastIndexOf('>')) {
+            let leftStaple = test.indexOf(`<`, rightStaple);
+            text = test.substring(rightStaple + 1, leftStaple);
+            render(target, text, false);
+            rightStaple = test.indexOf(`>`, leftStaple);
+            text = test.substring(leftStaple + 1, rightStaple);
+            render(target, text, true);
+            morsel += 1;
+        }
+        text = test.substring(rightStaple + 1);
         render(target, text, false);
-        rightStaple = test.indexOf(`>`, leftStaple);
-        text = test.substring(leftStaple + 1, rightStaple);
-        render(target, text, true);
-        morsel += 1;
-    }
-    text = test.substring(rightStaple + 1);
-    render(target, text, false);
     let button = document.getElementById("button");
     button.onclick = function () {
         gp(morsel, fullTest);
