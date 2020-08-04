@@ -1,63 +1,126 @@
-function gp(lastNumber) {
-    let newTest = ``;
-    let changed;
+function gp(lastNumber, fullTest) {
     let number = 0;
-    newTest = ``;
+    let changed;
+    let userTest = ``;
     while (number < lastNumber) {
         changed = document.getElementsByClassName("normal_words")[number].textContent;
-        newTest += changed;
+        userTest += changed;
         changed = document.getElementsByClassName("orfo")[number].value;
-        newTest += changed;
+        userTest += changed;
         number += 1;
     }
     changed = document.getElementsByClassName("normal_words")[number].textContent;
-    newTest += changed;
-    let fullTest = "Аморальный агроном в Австралии, Антарктиде, Африке и Азии строил алюминиевые автоколонны рядом с аллеями и акваториями, которые охраняли авиадесанты с автоматами.";
-    let index = 0
+    userTest += changed;
+    let index = 0;
     let mistake = 0;
     while (index < fullTest.length) {
-        if (newTest.substring(index, index + 1) > fullTest.substring(index, index + 1)) {
+        let usersResult = document.getElementById("user_results");
+        let correctAnswer = document.getElementById("correctAnswers");
+        let correctContent = fullTest.substring(index, index + 1);
+        let userContent = userTest.substring(index, index + 1);
+        if (userContent > correctContent) {
+            resultUser(usersResult, correctAnswer, userContent, correctContent, true);
             mistake += 1;
         } else {
-            if (newTest.substring(index, index + 1) < fullTest.substring(index, index + 1)) {
+            if (userContent < correctContent) {
+                resultUser(usersResult, correctAnswer, userContent, correctContent, true);
                 mistake += 1;
+            } else {
+                if (correctContent == userContent) {
+                    resultUser(usersResult, correctAnswer, userContent, correctContent, false);
+                }
+
             }
         }
         index += 1;
     }
-    console.log(mistake);
+    const target = document.getElementById("task-container");
+    target.remove();
+    if (mistake == 0) {
+        let greeting = document.createElement("p");
+        let plaseForGreeting = document.getElementById("greetingOrWishes");
+        let deleteResults = document.getElementById("results");
+        greeting.textContent = "Молодец!Всё верно!";
+        deleteResults.remove();
+        plaseForGreeting.appendChild(greeting);
+    } else {
+        let wishes = document.createElement("p");
+        wishes.textContent = "Учи!";
+        let plaseForWishes = document.getElementById("greetingOrWishes");
+        plaseForWishes.appendChild(wishes);
+    }
+
+
 }
 
-document.addEventListener("DOMContentLoaded", function (e) {
-    let target = document.getElementById("aurora");
-    let test = "Аморальный <…>гр<…>ном в <…>встралии, <…>нтарктиде, Афр<…>ке и Азии строил а<(лл\\л)>юминевые авт<…>к<…>ло<(н\\нн)>ы рядом с а<(л\\лл)>еями и акв<…>ториями, которые охраняли ав<…>ад<…>санты с <…>вт<…>мат<…>ми."
-    let right_staple = -1;
+function resultUser(elementForBirthUserResult, elementForCorrectAnswers, userContent, correctContent, trueOrFalse) {
+    let disastrousOrProperly;
+    let correctAnswer;
+    if (trueOrFalse) {
+        disastrousOrProperly = document.createElement("label");
+        disastrousOrProperly.setAttribute("class", "disastrous");
+        disastrousOrProperly.textContent = userContent;
+        correctAnswer = document.createElement("label");
+        correctAnswer.setAttribute("class", "properly");
+        correctAnswer.textContent = correctContent;
+
+
+    } else {
+        disastrousOrProperly = document.createElement("label");
+        disastrousOrProperly.setAttribute("class", "normal");
+        disastrousOrProperly.textContent = userContent;
+        correctAnswer = document.createElement("label");
+        correctAnswer.setAttribute("class", "normal");
+        correctAnswer.textContent = correctContent;
+
+    }
+    elementForBirthUserResult.appendChild(disastrousOrProperly);
+    elementForCorrectAnswers.appendChild(correctAnswer);
+
+
+}
+
+function render(target, segment, isInput) {
+    let label;
+    if (isInput) {
+        // Renders an input field
+        label = document.createElement("input");
+        label.setAttribute("class", "orfo");
+        label.setAttribute("value", segment);
+        label.setAttribute("size", 5);
+    } else {
+        // Renders a plain text
+        label = document.createElement("label");
+        label.setAttribute("class", "normal_words");
+        label.textContent = segment;
+    }
+    // Appends created rendered segment to the given target
+    target.appendChild(label);
+}
+
+function showTask() {
+    const target = document.getElementById("task-container");
+    let test = "Аморальный <а>гр<о>ном в <А>встралии, <А>нтарктиде, Афр<и>ке и Азии строил а<л>юминиевые авт<о>к<о>ло<нн>ы рядом с а<лл>еями и акв<а>ториями, которые охраняли ав<и>ад<е>санты с <а>вт<о>мат<а>ми.";
+    let fullTest = "Аморальный агроном в Австралии, Антарктиде, Африке и Азии строил алюминиевые автоколонны рядом с аллеями и акваториями, которые охраняли авиадесанты с автоматами.";
+    let rightStaple = -1;
     let morsel = 0;
     let text;
-    let input_label;
-    while (right_staple < test.lastIndexOf('>')) {
-        let leftStaple = test.indexOf(`<`, right_staple);
-        text = test.substring(right_staple + 1, leftStaple);
-        input_label = document.createElement("label");
-        input_label.textContent = text;
-        target.appendChild(input_label);
-        input_label.setAttribute("class", "normal_words");
-        right_staple = test.indexOf(`>`, leftStaple);
-        text = test.substring(leftStaple + 1, right_staple);
-        input_label = document.createElement("input");
-        target.appendChild(input_label);
-        input_label.setAttribute("class", "orfo");
-        input_label.setAttribute("value", text);
-        input_label.setAttribute("size", "6");
+    while (rightStaple < test.lastIndexOf('>')) {
+        let leftStaple = test.indexOf(`<`, rightStaple);
+        text = test.substring(rightStaple + 1, leftStaple);
+        render(target, text, false);
+        rightStaple = test.indexOf(`>`, leftStaple);
+        text = test.substring(leftStaple + 1, rightStaple);
+        render(target, text, true);
         morsel += 1;
     }
-    text = test.substring(right_staple + 1);
-    input_label = document.createElement("label");
-    input_label.textContent = text;
-    target.appendChild(input_label);
-    input_label.setAttribute("class", "normal_words");
-    let button = document.getElementById("newButton");
+    text = test.substring(rightStaple + 1);
+    render(target, text, false);
+    let button = document.getElementById("button");
     button.onclick = function () {
-        gp(morsel);
+        gp(morsel, fullTest);
+        button.remove();
     };
-});
+}
+
+document.addEventListener("DOMContentLoaded", showTask);

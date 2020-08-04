@@ -1,5 +1,5 @@
 body {
-    background:white;
+    background: #E6E6E6;
     color: black;
 
     margin: 0;
@@ -10,10 +10,53 @@ body {
     justify-content: center;
 
 }
-P.orfo {
-    color: red;
+
+input.orfo {
+    color: black;
 }
-P.normal_words {
+
+label.normal_words {
     color: black;
 
+}
+
+label.disastrous {
+    color: red;
+}
+
+label.properly {
+    color: green;
+}
+
+label.normal {
+    color: black;
+}
+
+
+#task-container {
+    align-content: center;
+}
+
+#results {
+    align-content: center;
+}
+
+div {
+    width: 400px;
+    height: 100px;
+}
+
+div.button {
+    margin-top: 30px;
+
+}
+
+.parent {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    border: none;
+    background: #FFFFFF;
 }
