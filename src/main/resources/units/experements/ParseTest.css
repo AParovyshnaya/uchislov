@@ -12,7 +12,7 @@ body {
 }
 
 input.orfo {
-    color: black;
+    height: 15px;
 }
 
 label.normal_words {
@@ -35,6 +35,7 @@ label.normal {
 
 #task-container {
     align-content: center;
+    height: 75px;
 }
 
 #results {
@@ -46,10 +47,7 @@ div {
     height: 100px;
 }
 
-div.button {
-    margin-top: 30px;
 
-}
 
 .parent {
     display: flex;
@@ -59,4 +57,7 @@ div.button {
 input {
     border: none;
     background: #FFFFFF;
+}
+div.button {
+    height: 20px;
 }
