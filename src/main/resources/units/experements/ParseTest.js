@@ -43,13 +43,7 @@ function gp(lastNumber, fullTest) {
         greeting.textContent = "Молодец!Всё верно!";
         deleteResults.remove();
         plaseForGreeting.appendChild(greeting);
-    } else {
-        let wishes = document.createElement("p");
-        wishes.textContent = "Учи!";
-        let plaseForWishes = document.getElementById("greetingOrWishes");
-        plaseForWishes.appendChild(wishes);
-    }
-
+    } 
 
 }
 
@@ -87,7 +81,7 @@ function resultUser(elementForBirthUserResult, elementForCorrectAnswers, userCon
             label = document.createElement("input");
             label.setAttribute("class", "orfo");
             label.setAttribute("value", segment);
-            label.setAttribute("size", 5);
+            label.style.width = segment.length*8 + 'px';
         } else {
             // Renders a plain text
             label = document.createElement("label");
