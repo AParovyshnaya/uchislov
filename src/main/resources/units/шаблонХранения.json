@@ -1,0 +1,7 @@
+{
+    "name": "name",
+    "class": "x",
+    "letters": ["a", "b", "c", "d"],
+    "fullVersion": "FullVersion (normalsWords)",
+    "versionWihtOrthograms": "v<...>rsionWihtOrthograms"
+}
