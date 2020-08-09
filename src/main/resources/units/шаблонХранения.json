@@ -1,6 +1,6 @@
 {
     "name": "name",
-    "class": "x",
+    "grade": "x",
     "letters": ["a", "b", "c", "d"],
     "fullVersion": "FullVersion (normalsWords)",
     "versionWihtOrthograms": "v<...>rsionWihtOrthograms"
