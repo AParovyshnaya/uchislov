@@ -1,37 +1,51 @@
 ﻿<!DOCTYPE html>
 <html>
- <head>
-   <title>!DOCTYPE</title>
-   <meta charset="utf-8">
- </head>
-<body>
-<div>
-<p><a href=Main.html><img src="images\img.png"alt="иконка"></a></p>
-</div>
-<form action="select1.php" method="post">
-   <p><label>Выберите класс:</label>
-   <select size="1" multiple name="класс[]"> 
-    <option value="5">5</option>
-   </select></p>
-  <p><label>Буквы:<label/>
-   <input type="text" size="10">
-  </p>
-  <p><input type="submit" value="Искать тест"></p>
-</form>
-<div>
-<div>
-<p><a href="https//test"><img src="images\RandomTest.png" alt="Ссылка к рандомному тесту"></a></p>
-</div>
-<div>
-<p>Как учить слова?</p>
-<p><a href="https//word"><img src="images\Article.png" alt="Ссылка к статье"</a></p>
-</div>
-</div>
 
-<div>
-  <p><a href="https://github.com/AParovyshnaya/uchislov" target="_blank">GitHub</a></p>
-  <p><a href="https://github.com/AParovyshnaya/uchislov/issues/new" target="_blank">Нашли ошибку?</a></p>
-  <p><a href="https://spdx.org/licenses/Apache-2.0.html" target="_blank">Лицензия</a></p>
-</div>
+<head>
+  <title>uchislov</title>
+  <meta charset="utf-8">
+  <script src="SearchTestForm.js"></script>
+  <script src="tests.js"></script>
+</head>
+
+<body>
+  <script>
+    document.onload = function () {
+      searchButton = document.getElementById("search");
+      searchButton.onklik = function () {
+        filter(data);
+      }
+    }
+  </script>
+  <div>
+    <p><a href=Main.html><img src="images\img.png" alt="иконка"></a></p>
+  </div>
+  <form method="post">
+    <p><label>Выберите класс:</label>
+      <select size="1" multiple name="класс[]">
+        <option id="grade" value="5">5</option>
+      </select></p>
+    <p><label>Буквы:<label />
+        <input id="letters" type="text" size="10">
+    </p>
+    <p><input id="search" type="submit" value="Искать тест"></p>
+  </form>
+  <div>
+    <div>
+      <p><a href="https//test"><img src="images\RandomTest.png" alt="Ссылка к рандомному тесту"></a></p>
+    </div>
+    <div>
+      <p>Как учить слова?</p>
+      <p><a href="https//word"><img src="images\Article.png" alt="Ссылка к статье" </a></p>
+    </div>
+  </div>
+
+  <div>
+    <p><a href="https://github.com/AParovyshnaya/uchislov" target="_blank">GitHub</a></p>
+    <p><a href="https://github.com/AParovyshnaya/uchislov/issues/new" target="_blank">Нашли ошибку?</a></p>
+    <p><a href="https://spdx.org/licenses/Apache-2.0.html" target="_blank">Лицензия</a></p>
+  </div>
 </body>
+
 </html>
+]
