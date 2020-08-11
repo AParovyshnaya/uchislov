@@ -3,15 +3,10 @@ function filter(data) {
 }
 
 function search() {
-  const grade = document.getElementById("grade").textContent;
-  const letter = document.getElementById("letter").textContent;
+  const grade = document.getElementById("grade").value;
+  const letter = document.getElementById("letter").value;
   let tests = data.data;
   return search0(tests, grade, letter);
-}
-
-function generate(sourse) {
-  const target = document.getElementById("searches_result");
-  generate0(target, sourse);
 }
 
 /**
@@ -23,7 +18,7 @@ function generate(sourse) {
 function search0(scope, grade, letter) {
   let found = [];
   for (let test of scope) {
-    if ((test.grade == grade) && (test.letter == letter)) {
+    if ((test.grade == grade) && (test.letters == letter)) {
       found.push(test);
     }
   }
@@ -32,17 +27,17 @@ function search0(scope, grade, letter) {
 
 /**
  * Генерирует блоки с тестами на страницу
- * @param {*} target - DOM-объект, родительский элемент для генерации
  * @param {*} source - Массив с подходящими объектами
  */
-function generate0(target, source) {
+function generate(source) {
   for (let test of source) {
-    generateOne(target, test);
+    generateOne(test);
   }
 }
 
-function generateOne(target, test) {
+function generateOne(test) {
   let block = document.createElement("p");
   block.textContent = test.name;
+  let target = document.getElementById("searches_result");
   target.appendChild(block);
 }
