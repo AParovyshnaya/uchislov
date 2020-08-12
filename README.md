@@ -1,6 +1,7 @@
 ﻿# Uchislov
-
-
+ 
+ 
+ [![Hits-of-Code](https://github.com/AParovyshnaya/uchislov)](https://hitsofcode.com/view/github/AParovyshnaya/uchislov)
 
 ## Что это такое и кому это нужно
 
