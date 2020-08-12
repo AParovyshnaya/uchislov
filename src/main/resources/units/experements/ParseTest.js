@@ -1,11 +1,17 @@
-document.addEventListener("DOMContentLoaded", showTask);
-function passageTest(test, fullTest) {
+document.addEventListener("DOMContentLoaded", passageTest);
+function passageTest() {
+    let test = "<{Не}>ве<…>да и <{не}>вежа—<{не}>обыч<…>ные <{не}>пр<…>ят<…>ли. <{На}>к<…>нуне цел<…>ю <{не}>делю <{не}>д<…>ум<…>вающий <{не}>н<…>видящий и <{не}>г<…>дующий <{на}>ро<…> р<…>сталкивал <{на}>лево и <{на}>право <{не}>уклюжих <{не}>д<…>р<…>слей-н<…>с<…>р<…>гов, к<…>торые х<…>тели <{в}>н<…>ябре п<…>йти <{на}>зад.";
     parseTest(test);
     let button = document.getElementById("button");
     button.onclick = function () {
         checking(morsel, fullTest);
         button.remove();
     };
+}
+
+function giveData() {
+    let URL = window.location;
+    console.log(URL);
 }
 function parseTest(test) {
     let target = document.getElementById("task-container");
