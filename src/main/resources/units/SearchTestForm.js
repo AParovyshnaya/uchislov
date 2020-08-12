@@ -44,8 +44,9 @@ function generateResults(source) {
 }
 
 function generateOne(test) {
-  let block = document.createElement("p");
+  let block = document.createElement("a");
   block.textContent = test.name;
+  block.setAttribute("href", "experements/ParseTest.html?" + test.name);
   let target = document.getElementById("searches_result");
   target.appendChild(block);
 }
