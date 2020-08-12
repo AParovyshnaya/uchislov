@@ -1,5 +1,5 @@
 function filter(data) {
-  generate(search());
+  generateResults(search());
 }
 
 function search() {
@@ -29,7 +29,7 @@ function search0(scope, grade, letter) {
  * Генерирует блоки с тестами на страницу
  * @param {*} source - Массив с подходящими объектами
  */
-function generate(source) {
+function generateResults(source) {
   for (let test of source) {
     generateOne(test);
   }
