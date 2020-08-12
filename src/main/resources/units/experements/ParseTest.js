@@ -14,60 +14,59 @@ function parseTest(test) {
     while (rightStaple < test.lastIndexOf('>')) {
         let leftStaple = test.indexOf(`<`, rightStaple);
         text = test.substring(rightStaple + 1, leftStaple);
-        render(target, text, false);
+        generateTest(target, text, false);
         rightStaple = test.indexOf(`>`, leftStaple);
         text = test.substring(leftStaple + 1, rightStaple);
-        render(target, text, true);
+        generateTest(target, text, true);
         morsel += 1;
     }
     text = test.substring(rightStaple + 1);
-    render(target, text, false);
+    generateTest(target, text, false);
     return morsel;
 }
-function render(target, segment, isInput) {
-    let text;
+function generateTest(target, segment, isInput) {
+    let piece;
     if (isInput) {
-        text = document.createElement("input");
-        text.setAttribute("class", "orfo");
-        text.setAttribute("value", segment);
-        text.style.width = segment.length * 8 + 'px';
+        piece = document.createElement("input");
+        piece.setAttribute("class", "orfo");
+        piece.setAttribute("value", segment);
+        piece.style.width = segment.length * 8 + 'px';
     } else {
-        text = document.createElement("label");
-        text.setAttribute("class", "normal_words");
-        text.textContent = segment;
+        piece = document.createElement("label");
+        piece.setAttribute("class", "normal_words");
+        piece.textContent = segment;
     }
-    target.appendChild(text);
+    target.appendChild(piece);
 }
 
-function generate(userContent, correctContent, trueOrFalse) {
+function generateResults(userContent, correctContent, isInput) {
     let usersElement = document.getElementById("user_results");
     let answersElement = document.getElementById("correctAnswers");
-    let disastrous;
-    let properly;
-    let correctAnswer;
-    if (trueOrFalse) {
-        disastrous = document.createElement("label");
-        disastrous.setAttribute("class", "disastrous");
-        disastrous.textContent = userContent;
-        correctAnswer = document.createElement("label");
-        correctAnswer.setAttribute("class", "properly");
-        correctAnswer.textContent = correctContent;
+    let usersLetter;
+    let correct;
+    if (isInput) {
+        usersLetter = document.createElement("label");
+        usersLetter.setAttribute("class", "disastrous");
+        usersLetter.textContent = userContent;
+        correct = document.createElement("label");
+        correct.setAttribute("class", "properly");
+        correct.textContent = correctContent;
     } else {
-        properly = document.createElement("label");
-        properly.setAttribute("class", "normal");
-        properly.textContent = userContent;
-        correctAnswer = document.createElement("label");
-        correctAnswer.setAttribute("class", "normal");
-        correctAnswer.textContent = correctContent;
+        usersLetter = document.createElement("label");
+        usersLetter.setAttribute("class", "normal");
+        usersLetter.textContent = userContent;
+        correct = document.createElement("label");
+        correct.setAttribute("class", "normal");
+        correct.textContent = correctContent;
     }
     usersElement.appendChild(disastrous);
-    answersElement.appendChild(correctAnswer);
+    answersElement.appendChild(correct);
 }
 
-function checking(lastNumber, fullTest) {
+function checking(morsels, fullTest) {
     deleteTest();
-    takeData(lastNumber);
-    comparison(userTest, fullTest);
+    takeData(morsels);
+    comparison(edited, fullTest);
     greeting(mistake);
 }
 
@@ -77,36 +76,36 @@ function deleteTest() {
 }
 
 function takeData(morsels) {
-    let number = 0;
-    let changed;
-    let userTest = ``;
-    while (number < morsels) {
-        changed = document.getElementsByClassName("normal_words")[number].textContent;
-        userTest += changed;
-        changed = document.getElementsByClassName("orfo")[number].value;
-        userTest += changed;
-        number += 1;
+    let landmark = 0;
+    let dataPiese;
+    let edited = ``;
+    while (landmark < morsels) {
+        dataPiese = document.getElementsByClassName("normal_words")[landmark].textContent;
+        edited += dataPiese;
+        dataPiese = document.getElementsByClassName("orfo")[landmark].value;
+        edited += dataPiese;
+        landmark += 1;
     }
-    changed = document.getElementsByClassName("normal_words")[number].textContent;
-    userTest += changed;
-    return userTest;
+    dataPiese = document.getElementsByClassName("normal_words")[landmark].textContent;
+    edited += dataPiese;
+    return edited;
 }
-function comparison(userTest, fullTest) {
+function comparison(edited, fullTest) {
     let index = 0;
     let mistake = 0;
     while (index < fullTest.length) {
         let correctContent = fullTest.substring(index, index + 1);
-        let userContent = userTest.substring(index, index + 1);
-        if (userContent > correctContent) {
-            generate(userContent, correctContent, true);
+        let usersContent = edited.substring(index, index + 1);
+        if (usersContent > correctContent) {
+            generateResults(usersContent, correctContent, true);
             mistake += 1;
         } else {
-            if (userContent < correctContent) {
-                generate(userContent, correctContent, true);
+            if (usersContent < correctContent) {
+                generateResults(usersContent, correctContent, true);
                 mistake += 1;
             } else {
-                if (correctContent == userContent) {
-                    generate(userContent, correctContent, false);
+                if (correctContent == usersContent) {
+                    generateResults(usersContent, correctContent, false);
                 }
 
             }
