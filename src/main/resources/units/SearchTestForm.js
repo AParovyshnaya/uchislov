@@ -18,13 +18,21 @@ function search() {
 function search0(scope, grade, letter) {
   let found = [];
   for (let test of scope) {
-    if ((test.grade == grade) && (test.letters == letter)) {
+    if ((test.grade == grade) && chekingLetters(test, letter)) {
       found.push(test);
     }
   }
   return found;
 }
 
+function chekingLetters(test, letterUser) {
+  for (let letterTest of test.letters) {
+    if (letterTest == letterUser) {
+      return true;
+    }
+  }
+  return false;
+}
 /**
  * Генерирует блоки с тестами на страницу
  * @param {*} source - Массив с подходящими объектами
