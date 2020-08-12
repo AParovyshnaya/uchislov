@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", showTask);
 function passageTest(test, fullTest) {
+    parseTest(test);
     let button = document.getElementById("button");
     button.onclick = function () {
         checking(morsel, fullTest);
