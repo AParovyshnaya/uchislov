@@ -1,17 +1,23 @@
-document.addEventListener("DOMContentLoaded", passageTest);
-function passageTest() {
-    let test = "<{Не}>ве<…>да и <{не}>вежа—<{не}>обыч<…>ные <{не}>пр<…>ят<…>ли. <{На}>к<…>нуне цел<…>ю <{не}>делю <{не}>д<…>ум<…>вающий <{не}>н<…>видящий и <{не}>г<…>дующий <{на}>ро<…> р<…>сталкивал <{на}>лево и <{на}>право <{не}>уклюжих <{не}>д<…>р<…>слей-н<…>с<…>р<…>гов, к<…>торые х<…>тели <{в}>н<…>ябре п<…>йти <{на}>зад.";
-    parseTest(test);
+function passageTest(data) {
+    let scope = data.data;
+    let [full, orpho] = giveData(scope);
+    let morsel = parseTest(orpho);
     let button = document.getElementById("button");
     button.onclick = function () {
-        checking(morsel, fullTest);
         button.remove();
+        checking(morsel, full);
     };
 }
 
-function giveData() {
-    let URL = window.location;
-    console.log(URL);
+function giveData(scope) {
+    let id = window.location.search.substring(1);
+    for (let test of scope) {
+        if (test.id == id) {
+            let full = test.fullTest;
+            let orpho = test.versionWihtOrthograms;
+            return [full, orpho];
+        }
+    }
 }
 function parseTest(test) {
     let target = document.getElementById("task-container");
@@ -70,11 +76,9 @@ function generateResults(userContent, correctContent, isInput) {
     answersElement.appendChild(correct);
 }
 
-function checking(morsels, fullTest) {
+function checking(fullTest) {
     deleteTest();
-    takeData(morsels);
-    comparison(edited, fullTest);
-    greeting(mistake);
+    greeting(comparison(takeData(), fullTest));
 }
 
 function deleteTest() {
@@ -82,19 +86,17 @@ function deleteTest() {
     target.remove();
 }
 
-function takeData(morsels) {
-    let landmark = 0;
-    let dataPiese;
+function takeData() {
+    let sourses = document.getElementsByClassName("orfo normal_words");
+    console.log (sourses);
     let edited = ``;
-    while (landmark < morsels) {
-        dataPiese = document.getElementsByClassName("normal_words")[landmark].textContent;
-        edited += dataPiese;
-        dataPiese = document.getElementsByClassName("orfo")[landmark].value;
-        edited += dataPiese;
-        landmark += 1;
+    for (let sourse of sourses) {
+        if (sourse.tagName == "label") {
+            edited += sourse.textContent;
+        } else  {
+            edited += sourse.value;
+        }
     }
-    dataPiese = document.getElementsByClassName("normal_words")[landmark].textContent;
-    edited += dataPiese;
     return edited;
 }
 function comparison(edited, fullTest) {

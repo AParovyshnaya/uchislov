@@ -1,28 +1,37 @@
 <!DOCTYPE HTML>
 <html lang="html">
+
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="ParseTest.css">
     <script src="ParseTest.js"></script>
     <script src="../tests.js"></script>
+    <script lang="js">
+       window.onload = function() {
+        passageTest(data);
+       }
+    </script>
+
     <title>ParseTest</title>
 </head>
+
 <body>
-<div>
-    <div id="task-container">
-    </div>
-    <div class="button">
-        <input type="button" id="button">
-    </div>
-    <div id="results">
-        <div id="user_results">
-
+    <div>
+        <div id="task-container">
         </div>
-        <div id="correctAnswers">
-
+        <div class="button">
+            <input type="button" id="button">
         </div>
+        <div id="results">
+            <div id="user_results">
+
+            </div>
+            <div id="correctAnswers">
+
+            </div>
+        </div>
+        <div id="greetingOrWishes"></div>
     </div>
-    <div id="greetingOrWishes"></div>
-</div>
 </body>
+
 </html>
