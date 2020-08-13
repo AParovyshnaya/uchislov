@@ -4,7 +4,7 @@ function filter(data) {
 
 function search() {
   const grade = document.getElementById("grade").value;
-  const letter = document.getElementById("letter").value;
+  const letter = document.getElementById("letter").value.toLowerCase();
   let tests = data.data;
   return search0(tests, grade, letter);
 }

@@ -1,7 +1,6 @@
 function passageTest(data) {
     let scope = data.data;
     let [full, orpho] = giveData(scope);
-    console.log(full);  
     parseTest(orpho);
     let button = document.getElementById("button");
     button.onclick = function () {
@@ -78,7 +77,6 @@ function generateResults(userContent, correctContent, isInput) {
 }
 
 function checking(fullTest) {
-    console.log(fullTest);
     greeting(comparison(takeData(), fullTest));
     deleteTest();
 }
