@@ -1,11 +1,12 @@
 function passageTest(data) {
     let scope = data.data;
     let [full, orpho] = giveData(scope);
-    let morsel = parseTest(orpho);
+    console.log(full);  
+    parseTest(orpho);
     let button = document.getElementById("button");
     button.onclick = function () {
         button.remove();
-        checking(morsel, full);
+        checking(full);
     };
 }
 
@@ -41,12 +42,12 @@ function generateTest(target, segment, isInput) {
     let piece;
     if (isInput) {
         piece = document.createElement("input");
-        piece.setAttribute("class", "orfo");
+        piece.setAttribute("class", "test_part orpho");
         piece.setAttribute("value", segment);
         piece.style.width = segment.length * 8 + 'px';
     } else {
         piece = document.createElement("label");
-        piece.setAttribute("class", "normal_words");
+        piece.setAttribute("class", "test_part normal_words");
         piece.textContent = segment;
     }
     target.appendChild(piece);
@@ -72,13 +73,14 @@ function generateResults(userContent, correctContent, isInput) {
         correct.setAttribute("class", "normal");
         correct.textContent = correctContent;
     }
-    usersElement.appendChild(disastrous);
+    usersElement.appendChild(usersLetter);
     answersElement.appendChild(correct);
 }
 
 function checking(fullTest) {
-    deleteTest();
+    console.log(fullTest);
     greeting(comparison(takeData(), fullTest));
+    deleteTest();
 }
 
 function deleteTest() {
@@ -87,11 +89,10 @@ function deleteTest() {
 }
 
 function takeData() {
-    let sourses = document.getElementsByClassName("orfo normal_words");
-    console.log (sourses);
+    let sourses = document.getElementsByClassName("test_part");
     let edited = ``;
     for (let sourse of sourses) {
-        if (sourse.tagName == "label") {
+        if (sourse.tagName.toLowerCase() == "label") {
             edited += sourse.textContent;
         } else  {
             edited += sourse.value;
