@@ -1,12 +1,12 @@
 function filter(data) {
-  generateResults(search());
+  generateResults(takeData());
 }
 
-function search() {
+function takeData() {
   const grade = document.getElementById("grade").value;
   const letter = document.getElementById("letter").value.toLowerCase();
   let tests = data.data;
-  return search0(tests, grade, letter);
+  return search(tests, grade, letter);
 }
 
 /**
@@ -15,7 +15,7 @@ function search() {
  * @param {*} letter - критерий для поиска
  * @returns Массив с подходящими объектами
  */
-function search0(scope, grade, letter) {
+function search(scope, grade, letter) {
   let found = [];
   for (let test of scope) {
     if ((test.grade == grade) && chekingLetters(test, letter)) {
