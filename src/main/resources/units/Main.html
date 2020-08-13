@@ -4,11 +4,16 @@
 <head>
   <title>uchislov</title>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="Main.css">
   <script lang="js">
     window.onload = function () {
       let searchButton = document.getElementById("search");
       searchButton.onclick = function () {
         filter(data);
+      }
+      let random = document.getElementById("random_test");
+      random.onclick = function () {
+        randomTest(data);
       }
     }
   </script>
@@ -20,7 +25,7 @@
 <body>
 
   <div>
-    <p><a href=Main.html><img src="images\img.png" alt="иконка"></a></p>
+    <p><a href=Main.html><img src="images\img.png" alt="иконка" id="icon"></a></p>
   </div>
   <form method="post">
     <p><label>Выберите класс:</label>
@@ -36,8 +41,8 @@
 
   </div>
   <div>
-    <div>
-      <p><a href="https//test"><img src="images\RandomTest.png" alt="Ссылка к рандомному тесту"></a></p>
+    <div id="random">
+      <button><img src="images\RandomTest.png" alt="Ссылка к рандомному тесту" id="random_test"></button>
     </div>
     <div>
       <p>Как учить слова?</p>

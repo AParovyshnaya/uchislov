@@ -44,9 +44,27 @@ function generateResults(source) {
 }
 
 function generateOne(test) {
-  let block = document.createElement("a");
-  block.textContent = test.name;
-  block.setAttribute("href", "experements/ParseTest.html?" + test.id);
   let target = document.getElementById("searches_result");
-  target.appendChild(block);
+  target.appendChild(generateA(test, test.name));
+}
+
+function generateA (test, textContent) {
+  let link = document.createElement("a");
+  link.textContent = textContent;
+  link.setAttribute("href", "experements/ParseTest.html?" + test.id);
+  return link;
+}
+
+function randomTest(data) {
+  generateRandom(searchRandom(data.data)); 
+}
+
+function searchRandom(tests) {
+  let test = Math.floor(Math.random() * tests.length);
+  return tests[test];
+}
+
+function generateRandom(test) {
+  let target = document.getElementById("random");
+  target.appendChild(generateA(test, "Этот тест вам подойдёт?"));
 }
