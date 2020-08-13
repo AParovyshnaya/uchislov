@@ -1,5 +1,6 @@
 {
     "name": "name",
+    "id": "id",
     "grade": "x",
     "letters": ["a", "b", "c", "d"],
     "fullVersion": "FullVersion (normalsWords)",
