@@ -1,23 +1,12 @@
 body {
     background: #E6E6E6;
-    color: black;
-
-    margin: 0;
-    height: 100vh;
-
+    color: #666666;
     display: flex;
-    align-items: center;
-    justify-content: center;
-
+    flex-direction: column;
 }
 
 input.orfo {
     height: 15px;
-}
-
-label.normal_words {
-    color: black;
-
 }
 
 label.disastrous {
@@ -27,11 +16,6 @@ label.disastrous {
 label.properly {
     color: green;
 }
-
-label.normal {
-    color: black;
-}
-
 
 #task-container {
     align-content: center;
@@ -47,18 +31,21 @@ div {
     height: 100px;
 }
 
-
-
-.parent {
-    display: flex;
-    flex-direction: column;
-}
-
 input {
     border: none;
     background: #FFFFFF;
 }
-div.button {
-    height: 20px;
+.button {
+    height: 30px;
 }
 
+#icon {
+    width: 200px;
+    height: 200px;
+}
+
+a {
+    text-decoration: none;
+    margin-right: 20px;
+    color: #7cc576;
+}
