@@ -1,0 +1,41 @@
+body {
+    background: #E6E6E6;
+    color: #666666;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    margin-right: 20px;
+    color: #7cc576;
+}
+
+input, select, option {
+    border: none;
+    background: #FFFFFF;
+    margin-right: 20px;
+}
+button {
+    background: #E6E6E6;
+    border: none;
+}
+
+#random_test {
+    width: 377px;
+    height: 137px; 
+}
+
+#icon {
+    width: 200px;
+    height: 200px;
+}
+#footer {
+    display: flex;
+    align-items: center;
+}
+
+#form {
+    display: flex;
+    align-items: center;
+}
