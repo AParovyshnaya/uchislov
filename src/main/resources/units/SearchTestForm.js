@@ -1,5 +1,10 @@
 function filter(data) {
+  deleteRandomTest()
   generateResults(takeData());
+}
+function deleteRandomTest() {
+  let random = document.getElementById("random_test");
+  random.remove();
 }
 
 function takeData() {
