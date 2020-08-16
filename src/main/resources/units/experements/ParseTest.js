@@ -13,7 +13,7 @@ function giveData(scope) {
     let id = window.location.search.substring(1);
     for (let test of scope) {
         if (test.id == id) {
-            let full = test.fullTest;
+            let full = test.fullVersion;
             let orpho = test.versionWihtOrthograms;
             return [full, orpho];
         }
