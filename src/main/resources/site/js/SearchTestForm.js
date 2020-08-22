@@ -52,7 +52,7 @@ function generateOne(test, target) {
 function generateA(test) {
   let link = document.createElement("a");
   link.textContent = test.name;
-  link.setAttribute("href", "experements/ParseTest.html?" + test.id);
+  link.setAttribute("href", "ParseTest.html?" + test.id);
   link.setAttribute("id", "test");
   return link;
 }
