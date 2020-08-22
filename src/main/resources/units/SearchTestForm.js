@@ -1,10 +1,5 @@
 function filter(data) {
-  deleteRandomTest()
   generateResults(takeData());
-}
-function deleteRandomTest() {
-  let random = document.getElementById("random_test");
-  random.remove();
 }
 
 function takeData() {
@@ -50,18 +45,28 @@ function generateResults(source) {
 
 function generateOne(test) {
   let target = document.getElementById("searches_result");
-  target.appendChild(generateA(test, test.name));
+  target.appendChild(generateA(test));
 }
 
-function generateA (test, textContent) {
+function generateA(test) {
   let link = document.createElement("a");
-  link.textContent = textContent;
+  link.textContent = test.name;
   link.setAttribute("href", "experements/ParseTest.html?" + test.id);
+  link.setAttribute("id", "test");
   return link;
 }
 
 function randomTest(data) {
-  generateRandom(searchRandom(data.data)); 
+  let target = document.getElementById("random");
+  deleteOld(target);
+  generateRandom(searchRandom(data.data), target);
+}
+
+function deleteOld(target) {
+  let old = document.getElementById("test");
+  if (old != null) {
+    target.removeChild(old);
+  }
 }
 
 function searchRandom(tests) {
@@ -69,7 +74,6 @@ function searchRandom(tests) {
   return tests[test];
 }
 
-function generateRandom(test) {
-  let target = document.getElementById("random");
-  target.appendChild(generateA(test, "Этот тест вам подойдёт?"));
+function generateRandom(test, target) {
+  target.appendChild(generateA(test));
 }
