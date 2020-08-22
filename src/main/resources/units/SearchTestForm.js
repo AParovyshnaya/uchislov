@@ -38,13 +38,14 @@ function chekingLetters(test, letterUser) {
  * @param {*} source - Массив с подходящими объектами
  */
 function generateResults(source) {
+  let target = document.getElementById("searches_result");
+  deleteOld(target);
   for (let test of source) {
-    generateOne(test);
+    generateOne(test, target);
   }
 }
 
-function generateOne(test) {
-  let target = document.getElementById("searches_result");
+function generateOne(test, target) {
   target.appendChild(generateA(test));
 }
 
