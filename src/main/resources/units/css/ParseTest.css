@@ -2,7 +2,10 @@ body {
     background: #E6E6E6;
     color: #666666;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+}
+.child {
+    flex-basis: 100%;
 }
 
 input.orfo {
@@ -24,7 +27,7 @@ label.properly {
 
 #results {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
 }
 
 div {
@@ -45,8 +48,8 @@ input {
 }
 
 #icon {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
 }
 
 a {
