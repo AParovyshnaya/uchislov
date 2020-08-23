@@ -62,7 +62,10 @@ function generateA(test) {
 function randomTest(data) {
   let target = document.getElementById("random");
   deleteOld(target);
-  generateRandom(searchRandom(data.data), target);
+  let parent = document.createElement("div");
+  parent.setAttribute("id", "tests");
+  target.appendChild(parent);
+  generateRandom(searchRandom(data.data), parent);
 }
 
 function deleteOld(target) {
