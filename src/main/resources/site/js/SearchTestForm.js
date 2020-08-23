@@ -40,11 +40,8 @@ function chekingLetters(test, letterUser) {
 function generateResults(source) {
   let target = document.getElementById("searches_result");
   deleteOld(target);
-  let parent = document.createElement("div");
-  parent.setAttribute("id", "tests");
-  target.appendChild(parent);
   for (let test of source) {
-    generateOne(test, parent);
+    generateOne(test, createParent(target));
   }
 }
 
@@ -62,10 +59,13 @@ function generateA(test) {
 function randomTest(data) {
   let target = document.getElementById("random");
   deleteOld(target);
+  generateRandom(searchRandom(data.data), createParent(target));
+}
+function createParent(target) {
   let parent = document.createElement("div");
   parent.setAttribute("id", "tests");
   target.appendChild(parent);
-  generateRandom(searchRandom(data.data), parent);
+  return parent;
 }
 
 function deleteOld(target) {
