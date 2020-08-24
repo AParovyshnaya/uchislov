@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;1,300&family=Raleway:ital,wght@0,300;0,400;1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300&display=swap');
 body {
     background: #E6E6E6;
@@ -6,13 +6,13 @@ body {
     display: flex;
     flex-wrap: wrap;
     font-family: 'Raleway', sans-serif;
+    font-weight: 300;
 }
 .child {
     flex-basis: 100%;
 }
 
 input.orfo {
-    font-family: 'Raleway', sans-serif;
     height: 15px;
 }
 
@@ -40,8 +40,10 @@ div {
 }
 
 input {
+    font-family: 'Raleway', sans-serif;
     border: none;
     background: #FFFFFF;
+    font-weight: 400;
 }
 #button {
     background: #FFFFFF;
