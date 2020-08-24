@@ -39,9 +39,10 @@ function chekingLetters(test, letterUser) {
  */
 function generateResults(source) {
   let target = document.getElementById("searches_result");
-  deleteOld(target);
+  deleteOld(target, "specific_results");
+  let parent = createParent(target, "specific_results");
   for (let test of source) {
-    generateOne(test, createParent(target));
+    generateOne(test, parent);
   }
 }
 
@@ -58,18 +59,18 @@ function generateA(test) {
 
 function randomTest(data) {
   let target = document.getElementById("random");
-  deleteOld(target);
-  generateRandom(searchRandom(data.data), createParent(target));
+  deleteOld(target, "random_results");
+  generateRandom(searchRandom(data.data), createParent(target, "random_results"));
 }
-function createParent(target) {
+function createParent(target, id) {
   let parent = document.createElement("div");
-  parent.setAttribute("id", "tests");
+  parent.setAttribute("id", id);
   target.appendChild(parent);
   return parent;
 }
 
-function deleteOld(target) {
-  let old = document.getElementById("tests");
+function deleteOld(target, id) {
+  let old = document.getElementById(id);
   if (old != null) {
     console.log(old);
     target.removeChild(old);
