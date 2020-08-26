@@ -48,11 +48,17 @@ button {
 #footer {
     display: flex;
     align-items: center;
-    font-weight: 300;
-    font-family: 'Releway', sans-serif;
 }
 
 #form {
     display: flex;
     align-items: center;
+    margin-bottom: 15px;
+}
+
+#specific_results {
+    margin-bottom: 15px;
+}
+#random_results {
+    margin-top: 15px;
 }
