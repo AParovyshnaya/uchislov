@@ -48,9 +48,6 @@ input {
     background: #FFFFFF;
     border: none;
 }
-.button {
-    margin-top: 30px;
-}
 
 #icon {
     width: 100px;
@@ -61,4 +58,8 @@ a {
     text-decoration: none;
     margin-right: 20px;
     color: #7cc576;
+}
+
+#task-container {
+    line-height: 25px;
 }
