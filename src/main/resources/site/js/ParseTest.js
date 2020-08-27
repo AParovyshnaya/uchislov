@@ -43,7 +43,7 @@ function generateTest(target, segment, isInput) {
         piece = document.createElement("input");
         piece.setAttribute("class", "test_part orpho");
         piece.setAttribute("value", segment);
-        piece.style.width = segment.length * 8 + 'px';
+        piece.style.width = segment.length * 10 + 'px';
     } else {
         piece = document.createElement("label");
         piece.setAttribute("class", "test_part normal_words");
