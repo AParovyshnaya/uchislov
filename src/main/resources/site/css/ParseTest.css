@@ -6,6 +6,7 @@ body {
     flex-wrap: wrap;
     font-family: 'Raleway', sans-serif;
     font-weight: 300;
+    font-size: 20px;
 }
 .child {
     flex-basis: 100%;
@@ -43,6 +44,7 @@ input {
     border: none;
     background: #FFFFFF;
     font-weight: 400;
+    font-size: 20px;
 }
 #button {
     background: #FFFFFF;
