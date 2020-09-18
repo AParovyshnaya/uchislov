@@ -11,6 +11,9 @@ body {
 .child {
     flex-basis: 100%;
 }
+label {
+    outline:none
+}
 
 input.orfo {
     height: 15px;
@@ -45,6 +48,7 @@ input {
     background: #FFFFFF;
     font-weight: 400;
     font-size: 20px;
+    outline:none
 }
 #button {
     background: #FFFFFF;

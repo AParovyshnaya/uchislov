@@ -19,10 +19,12 @@ input, select, option {
     background: #FFFFFF;
     margin-right: 20px;
     font-family: 'Montserrat', sans-serif;
+    outline:none
 }
 button {
     background: #E6E6E6;
     border: none;
+    outline:none
 }
 #search {
     font-family:'Raleway', sans-serif;
