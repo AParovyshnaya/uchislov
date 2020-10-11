@@ -92,7 +92,7 @@ function takeData() {
     for (let sourse of sourses) {
         if (sourse.tagName.toLowerCase() == "label") {
             edited += sourse.textContent;
-        } else  {
+        } else {
             edited += sourse.value;
         }
     }

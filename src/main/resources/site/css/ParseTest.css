@@ -7,6 +7,7 @@ body {
     font-family: 'Raleway', sans-serif;
     font-weight: 300;
     font-size: 20px;
+    padding: 1% 5%;
 }
 .child {
     flex-basis: 100%;
@@ -24,9 +25,8 @@ label.properly {
     color: green;
 }
 
-#task-container {
-    align-content: center;
-    height: 75px;
+#task-container {   
+    line-height: 35px;
 }
 
 #results {
@@ -34,10 +34,6 @@ label.properly {
     flex-direction: column; 
 }
 
-div {
-    width: 400px;
-    height: 100px;
-}
 
 input {
     font-family: 'Raleway', sans-serif;
@@ -62,6 +58,3 @@ a {
     color: #7cc576;
 }
 
-#task-container {
-    line-height: 35px;
-}
