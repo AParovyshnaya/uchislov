@@ -10,10 +10,11 @@ function takeData() {
 }
 
 /**
+ * Функция по поиску нужного теста
  * @param {*} scope - массив объектов, каждый объект имеет grade и letters
  * @param {*} grade - критерий для поиска
  * @param {*} letter - критерий для поиска
- * @returns Массив с подходящими объектами
+ * @returns Словарь с подходящими объектами
  */
 function search(scope, grade, letter) {
   let found = [];

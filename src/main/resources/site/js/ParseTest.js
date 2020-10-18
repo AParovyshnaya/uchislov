@@ -9,6 +9,11 @@ function passageTest(data) {
     };
 }
 
+/**
+ * 
+ * @param {*} scope - Массив объектов, каждый объект имеет две версии
+ * @returns Два варианта теста: один с орфограммами, а другой полный
+ */
 function giveData(scope) {
     let id = window.location.search.substring(1);
     for (let test of scope) {
@@ -19,6 +24,7 @@ function giveData(scope) {
         }
     }
 }
+
 function parseTest(test) {
     let target = document.getElementById("task-container");
     let rightStaple = -1;
