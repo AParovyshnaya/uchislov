@@ -1,3 +1,7 @@
+/**
+ * Генерирует тест, проверяет тест и генерирует результаты
+ * @param {*} data - словарь с массивом тестов
+ */
 function passageTest(data) {
     let scope = data.data;
     let [full, orpho] = giveData(scope);
@@ -10,7 +14,6 @@ function passageTest(data) {
 }
 
 /**
- * 
  * @param {*} scope - Массив объектов, каждый объект имеет две версии
  * @returns Два варианта теста: один с орфограммами, а другой полный
  */
@@ -24,25 +27,31 @@ function giveData(scope) {
         }
     }
 }
-
-function parseTest(test) {
+/**
+ * Разбирает тест на кусочки и генерирует его
+ * @param {} orpho - Вариант теста с орфорграммами
+ */
+function parseTest(orpho) {
     let target = document.getElementById("task-container");
     let rightStaple = -1;
-    let morsel = 0;
     let text;
-    while (rightStaple < test.lastIndexOf('>')) {
-        let leftStaple = test.indexOf(`<`, rightStaple);
-        text = test.substring(rightStaple + 1, leftStaple);
+    while (rightStaple < orpho.lastIndexOf('>')) {
+        let leftStaple = orpho.indexOf(`<`, rightStaple);
+        text = orpho.substring(rightStaple + 1, leftStaple);
         generateTest(target, text, false);
-        rightStaple = test.indexOf(`>`, leftStaple);
-        text = test.substring(leftStaple + 1, rightStaple);
+        rightStaple = orpho.indexOf(`>`, leftStaple);
+        text = orpho.substring(leftStaple + 1, rightStaple);
         generateTest(target, text, true);
-        morsel += 1;
     }
-    text = test.substring(rightStaple + 1);
+    text = orpho.substring(rightStaple + 1);
     generateTest(target, text, false);
-    return morsel;
 }
+/**
+ * Генерирует тест, в котором можно работать
+ * @param {} target - Место генерации
+ * @param {string} - Строчка, которую генерируют
+ * @param {boolean} - будет инпутом или текстом
+ */
 function generateTest(target, segment, isInput) {
     let piece;
     if (isInput) {
@@ -57,13 +66,18 @@ function generateTest(target, segment, isInput) {
     }
     target.appendChild(piece);
 }
-
-function generateResults(userContent, correctContent, isInput) {
+/**
+ * Генерирует результаты
+ * @param {*} userContent - вариант пользователя
+ * @param {*} correctContent - правильный вариант
+ * @param {*} isNormal - правильный у пользователя в этом месте символ или нет
+ */
+function generateResults(userContent, correctContent, isNormal) {
     let usersElement = document.getElementById("user_results");
     let answersElement = document.getElementById("correctAnswers");
     let usersLetter;
     let correct;
-    if (isInput) {
+    if (isNormal) {
         usersLetter = document.createElement("label");
         usersLetter.setAttribute("class", "disastrous");
         usersLetter.textContent = userContent;
@@ -81,17 +95,24 @@ function generateResults(userContent, correctContent, isInput) {
     usersElement.appendChild(usersLetter);
     answersElement.appendChild(correct);
 }
-
+/**
+ * Проверка теста (включая генерацию текста результатов
+ * @param {string} fullTest - Правильный вариант написания теста
+ */
 function checking(fullTest) {
     greeting(comparison(takeData(), fullTest));
     deleteTest();
 }
-
+/**
+ * Удаляет тест, в котором работал пользователь
+ */
 function deleteTest() {
     let target = document.getElementById("task-container");
     target.remove();
 }
-
+/**
+ * Берёт введёные данные от пользователя
+ */
 function takeData() {
     let sourses = document.getElementsByClassName("test_part");
     let edited = ``;
@@ -104,11 +125,16 @@ function takeData() {
     }
     return edited;
 }
-function comparison(edited, fullTest) {
+/**
+ * Сравнивает символы и говорит, насколько правильный вариант теста у пользователя
+ * @param {*} edited - вариант теста от пользователя
+ * @param {*} correctTest - правильный вариант
+ */
+function comparison(edited, correctTest) {
     let index = 0;
     let mistake = 0;
-    while (index < fullTest.length) {
-        let correctContent = fullTest.substring(index, index + 1);
+    while (index < correctTest.length) {
+        let correctContent = correctTest.substring(index, index + 1);
         let usersContent = edited.substring(index, index + 1);
         if (usersContent > correctContent) {
             generateResults(usersContent, correctContent, true);
@@ -128,7 +154,10 @@ function comparison(edited, fullTest) {
     }
     return mistake;
 }
-
+/**
+ * Если ошибок нет, то говорит пользователю, что он молодец
+ * @param {*} mistake количество ошибок пользователя
+ */
 function greeting(mistake) {
     if (mistake == 0) {
         let greeting = document.createElement("p");
