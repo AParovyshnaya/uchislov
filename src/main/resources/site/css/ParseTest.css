@@ -6,7 +6,6 @@ body {
     flex-wrap: wrap;
     font-family: 'Raleway', sans-serif;
     font-weight: 300;
-    font-size: 20px;
     padding: 1% 5%;
 }
 .child {
@@ -30,11 +29,15 @@ label.properly {
 
 #task-container {   
     line-height: 35px;
+    font-size: 150%;
+    line-height: 200%;  
 }
 
 #results {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
+    font-size: 150%;
+    line-height: 200%; 
 }
 
 
@@ -43,17 +46,18 @@ input {
     border: none;
     background: #FFFFFF;
     font-weight: 400;
-    font-size: 20px;
-    outline:none
+    outline: none;
+    font-size: 100%;
 }
 #button {
     background: #FFFFFF;
     border: none;
+    font-size: 150%;
 }
 
 #icon {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
 }
 
 a {
