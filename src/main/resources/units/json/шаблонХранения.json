@@ -3,6 +3,6 @@
     "id": "id",
     "grade": "x",
     "letters": ["a", "b", "c", "d"],
-    "fullVersion": "FullVersion (normalsWords)",
-    "versionWihtOrthograms": "v<...>rsionWihtOrthograms"
+    "full": "FullVersion (normalsWords)",
+    "test": "v<...>rsionWihtOrthograms"
 }
