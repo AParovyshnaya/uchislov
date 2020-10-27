@@ -68,11 +68,11 @@ function generateTest(target, segment, isInput) {
 }
 /**
  * Генерирует результаты
- * @param {*} userContent - вариант пользователя
- * @param {*} correctContent - правильный вариант
+ * @param {*} user - вариант пользователя
+ * @param {*} correct - правильный вариант
  * @param {*} isNormal - правильный у пользователя в этом месте символ или нет
  */
-function generateResults(userContent, correctContent, isNormal) {
+function generateResults(user, correct, isNormal) {
     let usersElement = document.getElementById("user_results");
     let answersElement = document.getElementById("correctAnswers");
     let usersLetter;
@@ -80,17 +80,17 @@ function generateResults(userContent, correctContent, isNormal) {
     if (isNormal) {
         usersLetter = document.createElement("label");
         usersLetter.setAttribute("class", "disastrous");
-        usersLetter.textContent = userContent;
+        usersLetter.textContent = user;
         correct = document.createElement("label");
         correct.setAttribute("class", "properly");
-        correct.textContent = correctContent;
+        correct.textContent = correct;
     } else {
         usersLetter = document.createElement("label");
         usersLetter.setAttribute("class", "normal");
-        usersLetter.textContent = userContent;
+        usersLetter.textContent = user;
         correct = document.createElement("label");
         correct.setAttribute("class", "normal");
-        correct.textContent = correctContent;
+        correct.textContent = correct;
     }
     usersElement.appendChild(usersLetter);
     answersElement.appendChild(correct);
@@ -128,24 +128,24 @@ function takeData() {
 /**
  * Сравнивает символы и говорит, насколько правильный вариант теста у пользователя
  * @param {*} edited - вариант теста от пользователя
- * @param {*} correctTest - правильный вариант
+ * @param {*} full - правильный вариант
  */
-function comparison(edited, correctTest) {
+function comparison(edited, full) {
     let index = 0;
     let mistake = 0;
-    while (index < correctTest.length) {
-        let correctContent = correctTest.substring(index, index + 1);
-        let usersContent = edited.substring(index, index + 1);
-        if (usersContent > correctContent) {
-            generateResults(usersContent, correctContent, true);
+    while (index < edited.length) {
+        let correct = full.substring(index, index + 1);
+        let users = edited.substring(index, index + 1);
+        if (users > correct) {
+            generateResults(users, correct, true);
             mistake += 1;
         } else {
-            if (usersContent < correctContent) {
-                generateResults(usersContent, correctContent, true);
+            if (users < correct) {
+                generateResults(users, correct, true);
                 mistake += 1;
             } else {
-                if (correctContent == usersContent) {
-                    generateResults(usersContent, correctContent, false);
+                if (correct == users) {
+                    generateResults(users, correct, false);
                 }
 
             }
