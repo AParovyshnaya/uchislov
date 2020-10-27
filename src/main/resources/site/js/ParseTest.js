@@ -68,31 +68,31 @@ function generateTest(target, segment, isInput) {
 }
 /**
  * Генерирует результаты
- * @param {*} user - вариант пользователя
- * @param {*} correct - правильный вариант
+ * @param {*} usersLetter - вариант пользователя
+ * @param {*} correctLetter - правильный вариант
  * @param {*} isNormal - правильный у пользователя в этом месте символ или нет
  */
-function generateResults(user, correct, isNormal) {
+function generateResults(usersLetter, correctLetter, isNormal) {
     let usersElement = document.getElementById("user_results");
     let answersElement = document.getElementById("correctAnswers");
-    let usersLetter;
+    let user;
     let correct;
     if (isNormal) {
-        usersLetter = document.createElement("label");
-        usersLetter.setAttribute("class", "disastrous");
-        usersLetter.textContent = user;
+        user = document.createElement("label");
+        user.setAttribute("class", "disastrous");
+        user.textContent = usersLetter;
         correct = document.createElement("label");
         correct.setAttribute("class", "properly");
-        correct.textContent = correct;
+        correct.textContent = correctLetter;
     } else {
-        usersLetter = document.createElement("label");
-        usersLetter.setAttribute("class", "normal");
-        usersLetter.textContent = user;
+        user = document.createElement("label");
+        user.setAttribute("class", "normal");
+        user.textContent = usersLetter;
         correct = document.createElement("label");
         correct.setAttribute("class", "normal");
-        correct.textContent = correct;
+        correct.textContent = correctLetter;
     }
-    usersElement.appendChild(usersLetter);
+    usersElement.appendChild(user);
     answersElement.appendChild(correct);
 }
 /**
@@ -134,18 +134,18 @@ function comparison(edited, full) {
     let index = 0;
     let mistake = 0;
     while (index < edited.length) {
-        let correct = full.substring(index, index + 1);
-        let users = edited.substring(index, index + 1);
-        if (users > correct) {
-            generateResults(users, correct, true);
+        let correctLetter = full.substring(index, index + 1);
+        let usersLetter = edited.substring(index, index + 1);
+        if (usersLetter > correctLetter) {
+            generateResults(usersLetter, correctLetter, true);
             mistake += 1;
         } else {
-            if (users < correct) {
-                generateResults(users, correct, true);
+            if (usersLetter < correctLetter) {
+                generateResults(usersLetter, correctLetter, true);
                 mistake += 1;
             } else {
-                if (correct == users) {
-                    generateResults(users, correct, false);
+                if (correctLetter == usersLetter) {
+                    generateResults(usersLetter, correctLetter, false);
                 }
 
             }
