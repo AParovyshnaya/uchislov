@@ -30,7 +30,7 @@ button {
 }
 #search {
     font-family:'Raleway', sans-serif;
-    font-weight: 300;   
+    font-weight: 300;  
 }
 
 #random_test {
@@ -65,7 +65,8 @@ button {
 }
 
 #specific_results {
-    margin-bottom: 15px;
+    margin-bottom: 30px;
+    font-size: 150%;
 }
 #random_results {
     margin-top: 15px;
