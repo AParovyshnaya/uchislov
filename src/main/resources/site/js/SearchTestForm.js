@@ -5,10 +5,38 @@ function filter(data) {
 function takeData() {
   const grade = document.getElementById("grade").value;
   const letter = document.getElementById("letter").value.toLowerCase();
+  console.log(typeof grade);
+  all = howManyParametres(grade, letter);
   let tests = data.data;
-  return search(tests, grade, letter);
+  if (all == true) {
+    return search(tests, grade, letter);
+  } 
+  else {
+    return searchForGrade(tests, grade);
+  }
 }
 
+function howManyParametres(letter) {
+  let all;
+  if (letter == "") {
+    all == false;
+  }
+  else {
+    all == true;
+  }
+  return all;  
+}
+
+function searchForGrade(scope, grade) {
+  let found = [];
+  for (let test of scope) {
+    if (test.grade == String(grade)) {
+      found.push(test);
+    }
+  }
+  console.log(found)
+  return found;
+}
 /**
  * Функция по поиску нужного теста
  * @param {*} scope - массив объектов, каждый объект имеет grade и letters
