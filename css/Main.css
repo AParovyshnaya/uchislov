@@ -72,3 +72,10 @@ button {
     margin-top: 15px;
     font-size: 150%;
 }
+
+hr {
+    color: #E6E5CF;
+    margin-bottom: 0px;
+    margin-top: 30px;
+    width: 100%;
+}
