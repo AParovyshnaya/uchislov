@@ -66,3 +66,9 @@ a {
     color: #7cc576;
 }
 
+#greetingOrWishes {
+    line-height: 35px;
+    font-size: 150%;
+    line-height: 200%;
+}
+
