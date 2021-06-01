@@ -39,11 +39,18 @@ function chekingLetters(test, letterUser) {
  * @param {*} source - Массив с подходящими объектами
  */
 function generateResults(source) {
+  console.log(source)
   let target = document.getElementById("searches_result");
   deleteOld(target, "specific_results");
   let parent = createParent(target, "specific_results");
-  for (let test of source) {
-    generateOne(test, parent);
+  if (source.length==0) {
+    console.log("d")
+    noFound(parent);
+  }
+  else {
+    for (let test of source) {
+      generateOne(test, parent);
+    }
   }
 }
 
@@ -85,4 +92,10 @@ function searchRandom(tests) {
 
 function generateRandom(test, target) {
   target.appendChild(generateA(test));
+}
+
+function noFound(parent) {
+  let lable = document.createElement("label");
+  lable.textContent = ("Ничего не найдено");
+  parent.appendChild(lable);
 }
