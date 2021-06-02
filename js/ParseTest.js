@@ -97,10 +97,10 @@ function generateResults(usersLetter, correctLetter, isNormal) {
 }
 /**
  * Проверка теста (включая генерацию текста результатов
- * @param {string} fullTest - Правильный вариант написания теста
+ * @param {string} correct - Правильный вариант написания теста
  */
-function checking(fullTest) {
-    greeting(comparison(takeData(), fullTest));
+function checking(correct) {
+    greeting(comparison(takeData(), correct));
     deleteTest();
 }
 /**
