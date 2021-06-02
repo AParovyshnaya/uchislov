@@ -123,7 +123,16 @@ function takeData() {
             edited += sourse.value;
         }
     }
-    return edited;
+    return(deleteThreeDots(edited));
+}
+/**
+ * Удаляет все троеточия
+ * @param {string} test  - взятая от пользователя строка
+ */
+function deleteThreeDots(test) {
+    let good = "";
+    good = test.replace(/…/g,'');
+    return(good);
 }
 /**
  * Сравнивает символы и говорит, насколько правильный вариант теста у пользователя
