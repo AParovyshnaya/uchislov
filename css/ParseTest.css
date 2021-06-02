@@ -83,3 +83,7 @@ hr {
     align-items: center;
     font-size: 120%;
 }
+
+#user_results {
+    margin-bottom: 20px;
+}
