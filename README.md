@@ -1,7 +1,7 @@
 ﻿# Uchislov
  
 
-<img src="src/main/resources/site/images/img.png" width="150" height="150">
+<img src="images/img.png" width="150" height="150">
 
 [![Hits-of-Code](https://hitsofcode.com/github/aparovyshnaya/uchislov?branch=master)](https://hitsofcode.com/view/github/aparovyshnaya/uchislov?branch=master)
 
