@@ -96,10 +96,23 @@ function generateResults(usersLetter, correctLetter, isNormal) {
     answersElement.appendChild(correct);
 }
 /**
+ * Создаёт описание к результатам
+ * @param {*} target - место, где появится
+ * @param {string} content - что будет написано внутри
+ */
+function addDescription(target, content) {
+    let description = document.createElement("p");
+    description.textContent = content;
+    description.setAttribute("class", "description");
+    target.appendChild(description);
+}
+/**
  * Проверка теста (включая генерацию текста результатов
  * @param {string} correct - Правильный вариант написания теста
  */
 function checking(correct) {
+    addDescription(document.getElementById("user_results"), "Что написали вы:");
+    addDescription(document.getElementById("correctAnswers"), "Как надо:");
     greeting(comparison(takeData(), correct));
     deleteTest();
 }
