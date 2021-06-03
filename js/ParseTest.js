@@ -58,6 +58,7 @@ function generateTest(target, segment, isInput) {
         piece = document.createElement("input");
         piece.setAttribute("class", "test_part orpho");
         piece.setAttribute("value", segment);
+        piece.setAttribute("title", "Здесь надо напечатать необхадимую букву или пробел. Троеточие удалять необязательно, оно уберётся автоматически.");
         piece.style.width = segment.length * 20 + 'px';
     } else {
         piece = document.createElement("label");
