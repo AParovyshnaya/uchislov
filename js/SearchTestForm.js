@@ -3,7 +3,8 @@ function filter(data) {
 }
 
 function takeData() {
-  const grade = document.getElementById("grade").value;
+  const grade = document.querySelector('#grade_s_select').value;
+  console.log(grade);
   const letter = document.getElementById("letter").value.toLowerCase();
   let tests = data.data;
   return search(tests, grade, letter);
@@ -39,12 +40,10 @@ function chekingLetters(test, letterUser) {
  * @param {*} source - Массив с подходящими объектами
  */
 function generateResults(source) {
-  console.log(source)
   let target = document.getElementById("searches_result");
   deleteOld(target, "specific_results");
   let parent = createParent(target, "specific_results");
   if (source.length==0) {
-    console.log("d")
     noFound(parent);
   }
   else {
@@ -80,7 +79,6 @@ function createParent(target, id) {
 function deleteOld(target, id) {
   let old = document.getElementById(id);
   if (old != null) {
-    console.log(old);
     target.removeChild(old);
   }
 }
