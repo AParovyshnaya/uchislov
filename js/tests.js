@@ -236,9 +236,17 @@ let data = {
         },
         {
             "name": "а",
-            "id": "test",
+            "id": "test5",
             "grade": "5",
             "letters": ["t"],
+            "full": "test",
+            "test": "t<…>st"
+        },
+        {
+            "name": "а",
+            "id": "test6",
+            "grade": "6",
+            "letters": ["а"],
             "full": "test",
             "test": "t<…>st"
         }
