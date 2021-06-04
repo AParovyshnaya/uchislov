@@ -9,6 +9,16 @@ function takeData() {
   return search(tests, grade, letter);
 }
 
+function giveGrade() {
+const select = document.querySelector('#grade_s_select');
+select.addEventListener("change", function() {
+const select = document.querySelector('#grade_s_select');
+console.log(select.value);
+return(select.value);
+});
+return(select.value);
+}
+
 /**
  * Функция по поиску нужного теста
  * @param {*} scope - массив объектов, каждый объект имеет grade и letters
