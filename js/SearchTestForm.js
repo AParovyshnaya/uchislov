@@ -105,7 +105,7 @@ function textContent() {
   const letter = document.getElementById("letter").value.toLowerCase();
   let content;
   if (grade=="") {
-    content = "Ничего не найдено. При поиске выделите синим выбранный класс."
+    content = "Ничего не найдено. При поиске выделите нажмите на выбранный класс."
   }
   else if (letter == "") {
     content = "Ничего не найдено. При поиске впишите букву, на которую в основном будут начинаться слова с орфограммами."
