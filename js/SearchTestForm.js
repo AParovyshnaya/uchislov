@@ -4,7 +4,6 @@ function filter(data) {
 
 function takeData() {
   const grade = document.querySelector('#grade_s_select').value;
-  console.log(grade);
   const letter = document.getElementById("letter").value.toLowerCase();
   let tests = data.data;
   return search(tests, grade, letter);
@@ -95,6 +94,22 @@ function generateRandom(test, target) {
 
 function noFound(parent) {
   let lable = document.createElement("label");
-  lable.textContent = ("Ничего не найдено");
+  lable.textContent = textContent();
   parent.appendChild(lable);
+}
+
+function textContent() {
+  const grade = document.querySelector('#grade_s_select').value;
+  const letter = document.getElementById("letter").value.toLowerCase();
+  let content;
+  if (grade=="") {
+    content = "Ничего не найдено. При поиске выделите синим выбранный класс."
+  }
+  else if (letter == "") {
+    content = "Ничего не найдено. При поиске впишите букву, на которую в основном будут начинаться слова с орфограммами."
+  }
+  else {
+    content = "Ничего не найдено для " + grade + " класса на букву " + "\""+ letter + "\"."
+  }
+  return(content)
 }
