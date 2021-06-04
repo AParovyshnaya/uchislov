@@ -8,17 +8,6 @@ function takeData() {
   let tests = data.data;
   return search(tests, grade, letter);
 }
-
-function giveGrade() {
-const select = document.querySelector('#grade_s_select');
-select.addEventListener("change", function() {
-const select = document.querySelector('#grade_s_select');
-console.log(select.value);
-return(select.value);
-});
-return(select.value);
-}
-
 /**
  * Функция по поиску нужного теста
  * @param {*} scope - массив объектов, каждый объект имеет grade и letters
@@ -118,7 +107,7 @@ function textContent() {
     content = "Ничего не найдено. При поиске выделите нажмите на выбранный класс."
   }
   else if (letter == "") {
-    content = "Ничего не найдено. При поиске впишите букву, на которую в основном будут начинаться слова с орфограммами."
+    content = "Ничего не найдено. Впишите букву, на которую будут начинатся словарные слова."
   }
   else {
     content = "Ничего не найдено для " + grade + " класса на букву " + "\""+ letter + "\"."
