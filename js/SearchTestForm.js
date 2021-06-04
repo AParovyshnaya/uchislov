@@ -61,7 +61,9 @@ function generateA(test) {
   link.textContent = test.name;
   link.setAttribute("href", "ParseTest.html?" + test.id);
   link.setAttribute("title", "Если вы нажмёте, то перенесётесь на страницу с тестом");
-  return link;
+  let p = document.createElement("p");
+  p.appendChild(link);
+  return p;
 }
 
 function randomTest(data) {
