@@ -17,9 +17,27 @@ function takeData() {
  */
 function search(scope, grade, letter) {
   let found = [];
-  for (let test of scope) {
-    if ((test.grade == grade) && chekingLetters(test, letter)) {
-      found.push(test);
+  if (grade == "no" && letter == "") {
+    for (let test of scope) {
+        found.push(test);
+    }
+  } else if (grade == "no") {
+    for (let test of scope) {
+      if (chekingLetters(test, letter)) {
+        found.push(test);
+      }
+    }
+  } else if (letter  == "") {
+    for (let test of scope) {
+      if (test.grade == grade) {
+        found.push(test);
+      }
+    }
+  } else {
+    for (let test of scope) {
+      if ((test.grade == grade) && chekingLetters(test, letter)) {
+        found.push(test);
+      }
     }
   }
   return found;
