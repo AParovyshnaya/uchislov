@@ -122,13 +122,13 @@ function textContent() {
   const letter = document.getElementById("letter").value.toLowerCase();
   let content;
   if (grade=="no") {
-    content = "Ничего не найдено на букву " + "\"" + letter + "\"."
+    content = "Ничего не найдено с буквой " + "\"" + letter + "\"."
   }
   else if (letter == "") {
     content = "Ничего не найдено для " + grade + " класса."
   }
   else {
-    content = "Ничего не найдено для " + grade + " класса на букву " + "\""+ letter + "\"."
+    content = "Ничего не найдено для " + grade + " класса с буквой " + "\""+ letter + "\"."
   }
   return(content)
 }
