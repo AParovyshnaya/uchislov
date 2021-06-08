@@ -60,9 +60,8 @@ button {
 #form {
     display: flex;
     align-items: center;
+    margin-bottom: 15px;
     font-size: 150%;
-    margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 #specific_results {

@@ -26,18 +26,18 @@
   <a href=index.html><img src="images\img.png" alt="иконка" id="icon"></a>
   <div>
     <div id="form">
-      <form>
-          <label>Выберите класс:</label>
-          <select size="1" id="grade_s_select" required>
-            <option class="grade" value="no">Не выбран</option>
-            <option class="grade" value="5">5</option>
-            <option class="grade" value="6">6</option>
-            <option class="grade" value="7">7</option>
-          </select>
-        <label>Буква:</label>
-        <input id="letter" type="text" size="10">
-        <input id="search" type="submit" value="Искать тест">
-      </form>
+      <p title="Выделите необходимый класс"><label>Выберите класс:</label>
+        <select size="1" id="grade_s_select" required>
+          <option class="grade" value="no">Не выбран</option>
+          <option class="grade" value="5">5</option>
+          <option class="grade" value="6">6</option>
+          <option class="grade" value="7">7</option>
+        </select>
+      </p>
+      <p title="Впишите букву, на которую будут начинаться слова с орфограммами"><label>Буква:</label>
+          <input id="letter" type="text" size="10">
+      </p>
+      <p><input id="search" type="button" value="Искать тест"></p>
     </div>
   </div>
   <div id="searches_result">
