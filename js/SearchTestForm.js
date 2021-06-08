@@ -121,11 +121,11 @@ function textContent() {
   const grade = document.querySelector('#grade_s_select').value;
   const letter = document.getElementById("letter").value.toLowerCase();
   let content;
-  if (grade=="") {
-    content = "Ничего не найдено. При поиске выделите нажмите на выбранный класс."
+  if (grade=="no") {
+    content = "Ничего не найдено на букву " + "\"" + letter + "\"."
   }
   else if (letter == "") {
-    content = "Ничего не найдено. Впишите букву, на которую будут начинатся словарные слова."
+    content = "Ничего не найдено для " + grade + " класса."
   }
   else {
     content = "Ничего не найдено для " + grade + " класса на букву " + "\""+ letter + "\"."
