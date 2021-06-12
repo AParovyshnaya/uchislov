@@ -43,11 +43,14 @@ function search(scope, grade, letter) {
   return found;
 }
 
-function chekingLetters(test, letterUser) {
+function chekingLetters(test, users) {
   for (let letterTest of test.letters) {
-    if (letterTest == letterUser) {
+    if (letterTest == users) {
       return true;
     }
+  }
+  if (test.name == users) {
+    return true;
   }
   return false;
 }
@@ -121,14 +124,16 @@ function textContent() {
   const grade = document.querySelector('#grade_s_select').value;
   const letter = document.getElementById("letter").value.toLowerCase();
   let content;
-  if (grade=="no") {
-    content = "Ничего не найдено с буквой " + "\"" + letter + "\"."
-  }
-  else if (letter == "") {
-    content = "Ничего не найдено для " + grade + " класса."
-  }
-  else {
-    content = "Ничего не найдено для " + grade + " класса с буквой " + "\""+ letter + "\"."
+  if (letter == "") {
+    content = "Ничего не найдено для " + grade + " класса.";
+  } else if (letter.length == 1) {
+    if (grade == "no") {
+      content = "Ничего не найдено для буквы " + "\"" + letter + "\".";
+    } else {
+      content = "Ничего не найдено для " + grade + " класса для буквы " + "\""+ letter + "\".";
+    }
+  } else {
+    content = "Тест " + "\"" + letter +"\" не найден.";
   }
   return(content)
 }
