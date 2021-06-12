@@ -198,8 +198,7 @@ function comparison(edited, full) {
             index += 1
             HaveBr = false
         }
-        index += 1;
-        
+        index += 1;   
     }
     return mistake;
 }
