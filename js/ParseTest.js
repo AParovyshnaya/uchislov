@@ -29,22 +29,21 @@ function giveData(scope) {
 }
 /**
  * Разбирает тест на кусочки и генерирует его
- * @param {} orpho - Вариант теста с орфорграммами
+ * @param {} test - Вариант теста с орфорграммами
  */
-function parseTest(orpho) {
-    let target = document.getElementById("task-container");
+function parseTest(test) {
     let rightStaple = -1;
     let text;
-    while (rightStaple < orpho.lastIndexOf('>')) {
-        let leftStaple = orpho.indexOf(`<`, rightStaple);
-        text = orpho.substring(rightStaple + 1, leftStaple);
-        generateTest(target, text, false);
-        rightStaple = orpho.indexOf(`>`, leftStaple);
-        text = orpho.substring(leftStaple + 1, rightStaple);
-        generateTest(target, text, true);
+    while (rightStaple < test.lastIndexOf('>')) {
+        let leftStaple = test.indexOf(`<`, rightStaple);
+        text = test.substring(rightStaple + 1, leftStaple);
+        generateTest(text, false);
+        rightStaple = test.indexOf(`>`, leftStaple);
+        text = test.substring(leftStaple + 1, rightStaple);
+        generateTest(text, true);
     }
-    text = orpho.substring(rightStaple + 1);
-    generateTest(target, text, false);
+    text = test.substring(rightStaple + 1);
+    generateTest(text, false);
 }
 /**
  * Генерирует тест, в котором можно работать
@@ -52,7 +51,8 @@ function parseTest(orpho) {
  * @param {string} - Строчка, которую генерируют
  * @param {boolean} - будет инпутом или текстом
  */
-function generateTest(target, segment, isInput) {
+function generateTest(segment, isInput) {
+    let target = document.getElementById("task-container");
     let piece;
     if (isInput) {
         piece = document.createElement("input");
@@ -63,38 +63,54 @@ function generateTest(target, segment, isInput) {
     } else {
         piece = document.createElement("label");
         piece.setAttribute("class", "test_part normal_words");
-        piece.textContent = segment;
+        piece.textContent = br(segment, target);
     }
     target.appendChild(piece);
+}
+
+function br(text, target) {
+    let index = text.indexOf("%");
+    if (index!=-1) {
+        let before = text.substring(0, index);
+        let after = text.substring(index+1, text.length+1);
+        let lableBefore = document.createElement("label");
+        lableBefore.textContent = before;
+        target.appendChild(lableBefore);
+        let br = document.createElement("br");
+        target.appendChild(br);
+        return(after);
+    } else {
+        return text;
+    }
 }
 /**
  * Генерирует результаты
  * @param {*} usersLetter - вариант пользователя
  * @param {*} correctLetter - правильный вариант
- * @param {*} isNormal - правильный у пользователя в этом месте символ или нет
+ * @param {*} isInvalid - правильный у пользователя в этом месте символ или нет
  */
-function generateResults(usersLetter, correctLetter, isNormal) {
-    let usersElement = document.getElementById("user_results");
-    let answersElement = document.getElementById("correctAnswers");
+function generateResults(usersLetter, correctLetter, isInvalid) {
+    let usersTarget = document.getElementById("user_results");
+    let answersTarget = document.getElementById("correctAnswers");
     let user;
     let correct;
-    if (isNormal) {
+    if (isInvalid) {
         user = document.createElement("label");
         user.setAttribute("class", "disastrous");
-        user.textContent = usersLetter;
+        user.textContent = br(usersLetter, usersTarget);
         correct = document.createElement("label");
         correct.setAttribute("class", "properly");
-        correct.textContent = correctLetter;
+        correct.textContent = br(correctLetter, answersTarget);
     } else {
         user = document.createElement("label");
         user.setAttribute("class", "normal");
-        user.textContent = usersLetter;
+        user.textContent = br(usersLetter, usersTarget);;
         correct = document.createElement("label");
         correct.setAttribute("class", "normal");
-        correct.textContent = correctLetter;
+        correct.textContent = br(correctLetter, answersTarget);
     }
-    usersElement.appendChild(user);
-    answersElement.appendChild(correct);
+    usersTarget.appendChild(user);
+    answersTarget.appendChild(correct);
 }
 /**
  * Создаёт описание к результатам
@@ -156,24 +172,34 @@ function deleteThreeDots(test) {
 function comparison(edited, full) {
     let index = 0;
     let mistake = 0;
-    while (index < edited.length) {
+    let test;
+    if (edited.length > full.lenght) {
+        test = edited
+    } else {
+        test = full;
+    }
+    while (index < test.length) {
+        let HaveBr = false
         let correctLetter = full.substring(index, index + 1);
         let usersLetter = edited.substring(index, index + 1);
-        if (usersLetter > correctLetter) {
-            generateResults(usersLetter, correctLetter, true);
-            mistake += 1;
+        if (correctLetter=="%") {
+            generateResults("%", "%", false);
+            correctLetter = full.substring(index + 1, index + 2);
+            usersLetter = edited.substring(index + 1, index + 2);
+            HaveBr = true
+        }
+        if (usersLetter==correctLetter) {
+            generateResults(usersLetter, correctLetter, false);
         } else {
-            if (usersLetter < correctLetter) {
-                generateResults(usersLetter, correctLetter, true);
-                mistake += 1;
-            } else {
-                if (correctLetter == usersLetter) {
-                    generateResults(usersLetter, correctLetter, false);
-                }
-
-            }
+            generateResults(usersLetter, correctLetter, true);
+            mistake +=1
+        }
+        if (HaveBr==true) {
+            index += 1
+            HaveBr = false
         }
         index += 1;
+        
     }
     return mistake;
 }
