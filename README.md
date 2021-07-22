@@ -22,5 +22,6 @@ https://aparovyshnaya.github.io/uchislov/
 
 ## Как помочь проекту?
 
-Вы можете написать один из тестов. Создайте новый бранч в нашем проекте и назовите его своим именем пользователя и в конце прибавьте `test`. В файле [`tests.js`](https://github.com/AParovyshnaya/uchislov/blob/master/src/main/resources/site/js/tests.js) создайте в конце массива `data.data` свой тест по образцу. Потом создайте PR с названием бранча. 
+Вы можете написать один из тестов. Создайте новый бранч в нашем проекте и назовите его своим именем пользователя и в конце прибавьте `test`. В файле [`tests.js`](https://github.com/AParovyshnaya/uchislov/blob/master/src/main/resources/site/js/tests.js) создайте в конце массива `data.data` свой тест по образцу. Потом создайте PR с названием бранча. Или можете сделать `issue`.
+
 Если у вас есть идеи для проекта или вы нашли ошибку, то [создайте issue](https://github.com/AParovyshnaya/uchislov/issues/new).
